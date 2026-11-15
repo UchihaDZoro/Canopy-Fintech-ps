@@ -1,0 +1,1335 @@
+{
+ "coverage": {
+  "rainStations": 55,
+  "tempStations": 20,
+  "wbgtStations": 30,
+  "rainFrom": "2014-01-01",
+  "rainTo": "2026-10-31",
+  "psiFrom": "2014-04-01",
+  "psiTo": "2026-09-30",
+  "forecastDays": 717,
+  "forecastFrom": "2018-06-02",
+  "wbgtDays": 161,
+  "hawkerCentres": 123,
+  "stalls": 6665
+ },
+ "heat": {
+  "version": "heat-wbgt-ols-v1",
+  "target": "Daily maximum WBGT (°C) at NEA WBGT station",
+  "features": [
+   "intercept",
+   "Tmax (°C)",
+   "Tmean (°C)",
+   "ln(1+rain mm)",
+   "season sin",
+   "season cos"
+  ],
+  "coefficients": [
+   9.43482,
+   0.47841,
+   0.20765,
+   0.04414,
+   0.06088,
+   -0.38315
+  ],
+  "residualSigma": 1.091,
+  "train": {
+   "n": 1331,
+   "r2": 0.504,
+   "mae": 0.88,
+   "rmse": 1.11,
+   "highDays": {
+    "observed": 70,
+    "predicted": 1,
+    "hit": 1
+   },
+   "from": "2025-02-12",
+   "to": "2026-05-22"
+  },
+  "validation": {
+   "n": 975,
+   "r2": 0.231,
+   "mae": 0.86,
+   "rmse": 1.09,
+   "highDays": {
+    "observed": 40,
+    "predicted": 0,
+    "hit": 0
+   },
+   "from": "2026-05-26",
+   "to": "2026-10-29"
+  },
+  "pairs": [
+   {
+    "wbgt": "S124",
+    "wbgtName": "Changi Meteorological Station",
+    "mss": "S24",
+    "km": 0.01,
+    "n": 156
+   },
+   {
+    "wbgt": "S125",
+    "wbgtName": "Woodlands Stadium",
+    "mss": "S104",
+    "km": 1.24,
+    "n": 142
+   },
+   {
+    "wbgt": "S126",
+    "wbgtName": "Old Choa Chu Kang Road",
+    "mss": "S121",
+    "km": 0.33,
+    "n": 151
+   },
+   {
+    "wbgt": "S127",
+    "wbgtName": "Kallang Practice Track",
+    "mss": "S108",
+    "km": 3,
+    "n": 5
+   },
+   {
+    "wbgt": "S128",
+    "wbgtName": "Bishan Stadium",
+    "mss": "S109",
+    "km": 2.73,
+    "n": 155
+   },
+   {
+    "wbgt": "S129",
+    "wbgtName": "Bedok Stadium",
+    "mss": "S107",
+    "km": 2.88,
+    "n": 156
+   },
+   {
+    "wbgt": "S132",
+    "wbgtName": "Jurong West Stadium",
+    "mss": "S44",
+    "km": 1.76,
+    "n": 156
+   },
+   {
+    "wbgt": "S135",
+    "wbgtName": "Mandai Wildlife Reserve",
+    "mss": "S104",
+    "km": 3.98,
+    "n": 48
+   },
+   {
+    "wbgt": "S137",
+    "wbgtName": "Sakra Road (Jurong Island)",
+    "mss": "S117",
+    "km": 2.68,
+    "n": 120
+   },
+   {
+    "wbgt": "S139",
+    "wbgtName": "Tuas Terminal Gateway",
+    "mss": "S115",
+    "km": 3.35,
+    "n": 106
+   },
+   {
+    "wbgt": "S140",
+    "wbgtName": "Choa Chu Kang Stadium",
+    "mss": "S121",
+    "km": 3.62,
+    "n": 105
+   },
+   {
+    "wbgt": "S141",
+    "wbgtName": "Yio Chu Kang Stadium",
+    "mss": "S109",
+    "km": 0.56,
+    "n": 106
+   },
+   {
+    "wbgt": "S142",
+    "wbgtName": "Palawan Green (Sentosa)",
+    "mss": "S60",
+    "km": 0.93,
+    "n": 103
+   },
+   {
+    "wbgt": "S143",
+    "wbgtName": "Punggol North",
+    "mss": "S06",
+    "km": 5.95,
+    "n": 105
+   },
+   {
+    "wbgt": "S145",
+    "wbgtName": "MacRitchie Reservoir",
+    "mss": "S111",
+    "km": 3.48,
+    "n": 48
+   },
+   {
+    "wbgt": "S146",
+    "wbgtName": "Jalan Bahar",
+    "mss": "S44",
+    "km": 2.48,
+    "n": 48
+   },
+   {
+    "wbgt": "S148",
+    "wbgtName": "Pasir Ris Walk",
+    "mss": "S24",
+    "km": 2.05,
+    "n": 48
+   },
+   {
+    "wbgt": "S149",
+    "wbgtName": "Tampines Central Park",
+    "mss": "S06",
+    "km": 3.89,
+    "n": 72
+   },
+   {
+    "wbgt": "S150",
+    "wbgtName": "MOE (Evans) Stadium",
+    "mss": "S111",
+    "km": 2.2,
+    "n": 72
+   },
+   {
+    "wbgt": "S151",
+    "wbgtName": "Outward Bound Singapore(Pulau ubin)",
+    "mss": "S106",
+    "km": 4.19,
+    "n": 48
+   },
+   {
+    "wbgt": "S153",
+    "wbgtName": "Bukit Batok Swimming Complex",
+    "mss": "S50",
+    "km": 3.34,
+    "n": 71
+   },
+   {
+    "wbgt": "S180",
+    "wbgtName": "Taman Jurong Greens",
+    "mss": "S121",
+    "km": 4.11,
+    "n": 47
+   },
+   {
+    "wbgt": "S184",
+    "wbgtName": "Sengkang East Avenue",
+    "mss": "S06",
+    "km": 2.91,
+    "n": 72
+   },
+   {
+    "wbgt": "S187",
+    "wbgtName": "Coronation Road",
+    "mss": "S50",
+    "km": 2.98,
+    "n": 103
+   },
+   {
+    "wbgt": "S131",
+    "wbgtName": "Hougang Stadium",
+    "mss": "S06",
+    "km": 2.35,
+    "n": 16
+   },
+   {
+    "wbgt": "S133",
+    "wbgtName": "Cathay Green",
+    "mss": "S111",
+    "km": 1.86,
+    "n": 16
+   },
+   {
+    "wbgt": "S138",
+    "wbgtName": "Stirling Road",
+    "mss": "S111",
+    "km": 3.97,
+    "n": 16
+   },
+   {
+    "wbgt": "S910",
+    "wbgtName": "Outward Bound Singapore(East Coast)",
+    "mss": "S107",
+    "km": 0.92,
+    "n": 15
+   }
+  ],
+  "fittedAt": "2026-11-14T22:59:01.739Z"
+ },
+ "climate": [
+  {
+   "year": 1981,
+   "rain": 1336,
+   "rainDays": 115,
+   "heavy50": 6,
+   "hot34": 0,
+   "hot35": 0,
+   "tmean": null
+  },
+  {
+   "year": 1982,
+   "rain": 1582,
+   "rainDays": 105,
+   "heavy50": 5,
+   "hot34": 5,
+   "hot35": 0,
+   "tmean": 27.37
+  },
+  {
+   "year": 1983,
+   "rain": 1866,
+   "rainDays": 115,
+   "heavy50": 5,
+   "hot34": 52,
+   "hot35": 15,
+   "tmean": 27.66
+  },
+  {
+   "year": 1984,
+   "rain": 2687,
+   "rainDays": 165,
+   "heavy50": 11,
+   "hot34": 0,
+   "hot35": 0,
+   "tmean": 26.76
+  },
+  {
+   "year": 1985,
+   "rain": 1484,
+   "rainDays": 138,
+   "heavy50": 1,
+   "hot34": 6,
+   "hot35": 1,
+   "tmean": 27.11
+  },
+  {
+   "year": 1986,
+   "rain": 2536,
+   "rainDays": 159,
+   "heavy50": 12,
+   "hot34": 1,
+   "hot35": 0,
+   "tmean": 27.11
+  },
+  {
+   "year": 1987,
+   "rain": 2103,
+   "rainDays": 133,
+   "heavy50": 8,
+   "hot34": 2,
+   "hot35": 0,
+   "tmean": 27.37
+  },
+  {
+   "year": 1988,
+   "rain": 2599,
+   "rainDays": 142,
+   "heavy50": 13,
+   "hot34": 3,
+   "hot35": 0,
+   "tmean": 27.23
+  },
+  {
+   "year": 1989,
+   "rain": 2469,
+   "rainDays": 153,
+   "heavy50": 10,
+   "hot34": 3,
+   "hot35": 0,
+   "tmean": 26.93
+  },
+  {
+   "year": 1990,
+   "rain": 1524,
+   "rainDays": 112,
+   "heavy50": 3,
+   "hot34": 23,
+   "hot35": 1,
+   "tmean": 27.59
+  },
+  {
+   "year": 1991,
+   "rain": 1877,
+   "rainDays": 121,
+   "heavy50": 8,
+   "hot34": 4,
+   "hot35": 0,
+   "tmean": 27.44
+  },
+  {
+   "year": 1992,
+   "rain": 2261,
+   "rainDays": 135,
+   "heavy50": 9,
+   "hot34": 14,
+   "hot35": 0,
+   "tmean": 27.36
+  },
+  {
+   "year": 1993,
+   "rain": 2169,
+   "rainDays": 135,
+   "heavy50": 8,
+   "hot34": 1,
+   "hot35": 0,
+   "tmean": 27.42
+  },
+  {
+   "year": 1994,
+   "rain": 1942,
+   "rainDays": 127,
+   "heavy50": 5,
+   "hot34": 2,
+   "hot35": 0,
+   "tmean": 27.6
+  },
+  {
+   "year": 1995,
+   "rain": 2333,
+   "rainDays": 145,
+   "heavy50": 6,
+   "hot34": 5,
+   "hot35": 0,
+   "tmean": 27.58
+  },
+  {
+   "year": 1996,
+   "rain": 2418,
+   "rainDays": 147,
+   "heavy50": 11,
+   "hot34": 2,
+   "hot35": 0,
+   "tmean": 27.5
+  },
+  {
+   "year": 1997,
+   "rain": 1119,
+   "rainDays": 90,
+   "heavy50": 4,
+   "hot34": 26,
+   "hot35": 1,
+   "tmean": 28.25
+  },
+  {
+   "year": 1998,
+   "rain": 2623,
+   "rainDays": 158,
+   "heavy50": 10,
+   "hot34": 50,
+   "hot35": 7,
+   "tmean": 28.31
+  },
+  {
+   "year": 1999,
+   "rain": 2134,
+   "rainDays": 144,
+   "heavy50": 5,
+   "hot34": 5,
+   "hot35": 0,
+   "tmean": 27.49
+  },
+  {
+   "year": 2000,
+   "rain": 2371,
+   "rainDays": 146,
+   "heavy50": 7,
+   "hot34": 6,
+   "hot35": 0,
+   "tmean": 27.48
+  },
+  {
+   "year": 2001,
+   "rain": 2783,
+   "rainDays": 149,
+   "heavy50": 11,
+   "hot34": 1,
+   "hot35": 0,
+   "tmean": 27.62
+  },
+  {
+   "year": 2002,
+   "rain": 1749,
+   "rainDays": 109,
+   "heavy50": 6,
+   "hot34": 19,
+   "hot35": 0,
+   "tmean": 28.09
+  },
+  {
+   "year": 2003,
+   "rain": 2391,
+   "rainDays": 153,
+   "heavy50": 9,
+   "hot34": 9,
+   "hot35": 0,
+   "tmean": 27.77
+  },
+  {
+   "year": 2004,
+   "rain": 2136,
+   "rainDays": 117,
+   "heavy50": 9,
+   "hot34": 17,
+   "hot35": 2,
+   "tmean": 27.85
+  },
+  {
+   "year": 2005,
+   "rain": 1931,
+   "rainDays": 133,
+   "heavy50": 5,
+   "hot34": 28,
+   "hot35": 8,
+   "tmean": 28.01
+  },
+  {
+   "year": 2006,
+   "rain": 2753,
+   "rainDays": 144,
+   "heavy50": 10,
+   "hot34": 8,
+   "hot35": 0,
+   "tmean": 27.74
+  },
+  {
+   "year": 2007,
+   "rain": 2886,
+   "rainDays": 162,
+   "heavy50": 14,
+   "hot34": 1,
+   "hot35": 0,
+   "tmean": 27.54
+  },
+  {
+   "year": 2008,
+   "rain": 2325,
+   "rainDays": 143,
+   "heavy50": 6,
+   "hot34": 1,
+   "hot35": 0,
+   "tmean": 27.47
+  },
+  {
+   "year": 2009,
+   "rain": 1921,
+   "rainDays": 137,
+   "heavy50": 7,
+   "hot34": 5,
+   "hot35": 1,
+   "tmean": 27.93
+  },
+  {
+   "year": 2010,
+   "rain": 2075,
+   "rainDays": 147,
+   "heavy50": 6,
+   "hot34": 30,
+   "hot35": 9,
+   "tmean": 28.09
+  },
+  {
+   "year": 2011,
+   "rain": 2524,
+   "rainDays": 144,
+   "heavy50": 10,
+   "hot34": 3,
+   "hot35": 1,
+   "tmean": 27.57
+  },
+  {
+   "year": 2012,
+   "rain": 2160,
+   "rainDays": 149,
+   "heavy50": 6,
+   "hot34": 0,
+   "hot35": 0,
+   "tmean": 27.54
+  },
+  {
+   "year": 2013,
+   "rain": 2748,
+   "rainDays": 161,
+   "heavy50": 9,
+   "hot34": 6,
+   "hot35": 1,
+   "tmean": 27.65
+  },
+  {
+   "year": 2014,
+   "rain": 1538,
+   "rainDays": 119,
+   "heavy50": 3,
+   "hot34": 8,
+   "hot35": 0,
+   "tmean": 27.92
+  },
+  {
+   "year": 2015,
+   "rain": 1267,
+   "rainDays": 95,
+   "heavy50": 1,
+   "hot34": 7,
+   "hot35": 0,
+   "tmean": 28.24
+  },
+  {
+   "year": 2016,
+   "rain": 1957,
+   "rainDays": 140,
+   "heavy50": 9,
+   "hot34": 24,
+   "hot35": 1,
+   "tmean": 28.43
+  },
+  {
+   "year": 2017,
+   "rain": 2055,
+   "rainDays": 163,
+   "heavy50": 4,
+   "hot34": 2,
+   "hot35": 0,
+   "tmean": 27.7
+  },
+  {
+   "year": 2018,
+   "rain": 1708,
+   "rainDays": 138,
+   "heavy50": 2,
+   "hot34": 11,
+   "hot35": 1,
+   "tmean": 27.88
+  },
+  {
+   "year": 2019,
+   "rain": 1368,
+   "rainDays": 85,
+   "heavy50": 7,
+   "hot34": 27,
+   "hot35": 0,
+   "tmean": 28.44
+  },
+  {
+   "year": 2020,
+   "rain": 1887,
+   "rainDays": 145,
+   "heavy50": 4,
+   "hot34": 9,
+   "hot35": 0,
+   "tmean": 28.05
+  },
+  {
+   "year": 2021,
+   "rain": 2810,
+   "rainDays": 141,
+   "heavy50": 8,
+   "hot34": 5,
+   "hot35": 0,
+   "tmean": 27.91
+  },
+  {
+   "year": 2022,
+   "rain": 2208,
+   "rainDays": 173,
+   "heavy50": 5,
+   "hot34": 8,
+   "hot35": 1,
+   "tmean": 27.87
+  },
+  {
+   "year": 2023,
+   "rain": 2411,
+   "rainDays": 138,
+   "heavy50": 9,
+   "hot34": 16,
+   "hot35": 1,
+   "tmean": 28.16
+  },
+  {
+   "year": 2024,
+   "rain": 2432,
+   "rainDays": 144,
+   "heavy50": 12,
+   "hot34": 30,
+   "hot35": 4,
+   "tmean": 28.44
+  },
+  {
+   "year": 2025,
+   "rain": 2833,
+   "rainDays": 146,
+   "heavy50": 11,
+   "hot34": 20,
+   "hot35": 5,
+   "tmean": 28.1
+  }
+ ],
+ "hazeYears": {
+  "2014": {
+   "unhealthy": 9,
+   "veryUnhealthy": 0,
+   "peak": 125
+  },
+  "2015": {
+   "unhealthy": 46,
+   "veryUnhealthy": 6,
+   "peak": 322
+  },
+  "2016": {
+   "unhealthy": 4,
+   "veryUnhealthy": 0,
+   "peak": 143
+  },
+  "2017": {
+   "unhealthy": 1,
+   "veryUnhealthy": 0,
+   "peak": 143
+  },
+  "2018": {
+   "unhealthy": 0,
+   "veryUnhealthy": 0,
+   "peak": 91
+  },
+  "2019": {
+   "unhealthy": 11,
+   "veryUnhealthy": 0,
+   "peak": 154
+  },
+  "2020": {
+   "unhealthy": 0,
+   "veryUnhealthy": 0,
+   "peak": 84
+  },
+  "2021": {
+   "unhealthy": 2,
+   "veryUnhealthy": 0,
+   "peak": 124
+  },
+  "2022": {
+   "unhealthy": 0,
+   "veryUnhealthy": 0,
+   "peak": 75
+  },
+  "2023": {
+   "unhealthy": 2,
+   "veryUnhealthy": 0,
+   "peak": 123
+  },
+  "2024": {
+   "unhealthy": 0,
+   "veryUnhealthy": 0,
+   "peak": 77
+  },
+  "2025": {
+   "unhealthy": 1,
+   "veryUnhealthy": 0,
+   "peak": 114
+  },
+  "2026": {
+   "unhealthy": 15,
+   "veryUnhealthy": 0,
+   "peak": 167
+  }
+ },
+ "areasRisk": {
+  "min": 76,
+  "max": 201
+ },
+ "port": {
+  "island": {
+   "avgRiskCost": 156.27,
+   "avgSd": 51.08
+  },
+  "totals": {
+   "centres": 120,
+   "stalls": 6665,
+   "policies": 2008,
+   "premiumIncome": 527995.07,
+   "avgLossRatio": 0.583,
+   "sdLossRatio": 0.052,
+   "worstYear": {
+    "year": 2014,
+    "payout": 344981.28,
+    "premium": 527633.68,
+    "lossRatio": 0.654,
+    "ceded": 0,
+    "netLossRatio": 0.654
+   }
+  },
+  "years": [
+   {
+    "year": 2014,
+    "payout": 344981.28,
+    "premium": 527633.68,
+    "lossRatio": 0.654,
+    "ceded": 0,
+    "netLossRatio": 0.654
+   },
+   {
+    "year": 2015,
+    "payout": 311024.36,
+    "premium": 527633.68,
+    "lossRatio": 0.589,
+    "ceded": 0,
+    "netLossRatio": 0.589
+   },
+   {
+    "year": 2016,
+    "payout": 263808.59,
+    "premium": 529079.25,
+    "lossRatio": 0.499,
+    "ceded": 0,
+    "netLossRatio": 0.499
+   },
+   {
+    "year": 2017,
+    "payout": 287535.93,
+    "premium": 527633.68,
+    "lossRatio": 0.545,
+    "ceded": 0,
+    "netLossRatio": 0.545
+   },
+   {
+    "year": 2018,
+    "payout": 285319.02,
+    "premium": 527633.68,
+    "lossRatio": 0.541,
+    "ceded": 0,
+    "netLossRatio": 0.541
+   },
+   {
+    "year": 2019,
+    "payout": 294228.55,
+    "premium": 499415.8,
+    "lossRatio": 0.589,
+    "ceded": 0,
+    "netLossRatio": 0.589
+   },
+   {
+    "year": 2020,
+    "payout": 305640.39,
+    "premium": 486925.2,
+    "lossRatio": 0.628,
+    "ceded": 0,
+    "netLossRatio": 0.628
+   },
+   {
+    "year": 2021,
+    "payout": 296275.72,
+    "premium": 477918.23,
+    "lossRatio": 0.62,
+    "ceded": 0,
+    "netLossRatio": 0.62
+   },
+   {
+    "year": 2022,
+    "payout": 281570.67,
+    "premium": 474158.27,
+    "lossRatio": 0.594,
+    "ceded": 0,
+    "netLossRatio": 0.594
+   },
+   {
+    "year": 2023,
+    "payout": 274831.17,
+    "premium": 448148.66,
+    "lossRatio": 0.613,
+    "ceded": 0,
+    "netLossRatio": 0.613
+   },
+   {
+    "year": 2024,
+    "payout": 193726.75,
+    "premium": 384627.61,
+    "lossRatio": 0.504,
+    "ceded": 0,
+    "netLossRatio": 0.504
+   },
+   {
+    "year": 2025,
+    "payout": 220699.98,
+    "premium": 356767.58,
+    "lossRatio": 0.619,
+    "ceded": 0,
+    "netLossRatio": 0.619
+   },
+   {
+    "year": 2026,
+    "payout": 245147.65,
+    "premium": 297143.41,
+    "lossRatio": 0.825,
+    "ceded": 0,
+    "netLossRatio": 0.825
+   }
+  ],
+  "topDays": [
+   {
+    "date": "2021-04-17",
+    "payout": 39443.4,
+    "policies": 754,
+    "peril": "rain"
+   },
+   {
+    "date": "2016-12-24",
+    "payout": 37476,
+    "policies": 705,
+    "peril": "rain"
+   },
+   {
+    "date": "2025-04-20",
+    "payout": 36744.67,
+    "policies": 719,
+    "peril": "rain"
+   },
+   {
+    "date": "2015-09-10",
+    "payout": 34452,
+    "policies": 1914,
+    "peril": "haze"
+   },
+   {
+    "date": "2019-06-03",
+    "payout": 34057.73,
+    "policies": 737,
+    "peril": "rain"
+   }
+  ],
+  "stress": [
+   {
+    "psi": 150,
+    "days": 14,
+    "payDays": 4,
+    "gross": 144576,
+    "lossRatio": 0.274,
+    "ceded": 0,
+    "net": 144576
+   },
+   {
+    "psi": 250,
+    "days": 7,
+    "payDays": 4,
+    "gross": 385536,
+    "lossRatio": 0.73,
+    "ceded": 0,
+    "net": 385536
+   },
+   {
+    "psi": 322,
+    "days": 21,
+    "payDays": 4,
+    "gross": 385536,
+    "lossRatio": 0.73,
+    "ceded": 0,
+    "net": 385536
+   }
+  ],
+  "regions": [
+   {
+    "region": "south",
+    "centres": 51,
+    "stalls": 3356,
+    "avgWeeklyPremium": 4.94,
+    "avgRiskCost": 153.26,
+    "rawZoneFactor": 0.981
+   },
+   {
+    "region": "east",
+    "centres": 31,
+    "stalls": 1597,
+    "avgWeeklyPremium": 4.86,
+    "avgRiskCost": 146.5,
+    "rawZoneFactor": 0.937
+   },
+   {
+    "region": "central",
+    "centres": 23,
+    "stalls": 915,
+    "avgWeeklyPremium": 5.21,
+    "avgRiskCost": 163.3,
+    "rawZoneFactor": 1.045
+   },
+   {
+    "region": "west",
+    "centres": 8,
+    "stalls": 459,
+    "avgWeeklyPremium": 6,
+    "avgRiskCost": 190.01,
+    "rawZoneFactor": 1.216
+   },
+   {
+    "region": "north",
+    "centres": 7,
+    "stalls": 338,
+    "avgWeeklyPremium": 5.45,
+    "avgRiskCost": 167.43,
+    "rawZoneFactor": 1.072
+   }
+  ]
+ },
+ "tampines": {
+  "name": "Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre)",
+  "stations": {
+   "rain": [
+    {
+     "id": "S84",
+     "name": "Tampines Avenue 5",
+     "lat": 1.3443,
+     "lon": 103.9441,
+     "km": 0.13
+    },
+    {
+     "id": "S94",
+     "name": "Pasir Ris Street 51",
+     "lat": 1.3679,
+     "lon": 103.9489,
+     "km": 2.55
+    },
+    {
+     "id": "S61",
+     "name": "Chai Chee Street",
+     "lat": 1.323,
+     "lon": 103.9217,
+     "km": 3.56
+    },
+    {
+     "id": "S107",
+     "name": "East Coast Parkway",
+     "lat": 1.3135,
+     "lon": 103.9625,
+     "km": 4.06
+    }
+   ],
+   "temp": {
+    "id": "S107",
+    "name": "East Coast Parkway",
+    "lat": 1.3135,
+    "lon": 103.9625,
+    "km": 4.06
+   },
+   "wbgt": {
+    "id": "S149",
+    "name": "Tampines Central Park",
+    "lat": 1.353834,
+    "lon": 103.938823,
+    "km": 1.14
+   },
+   "region": "east"
+  },
+  "stats": {
+   "avgAnnualPayout": 161.59,
+   "sdAnnualPayout": 39.37,
+   "worstYear": {
+    "year": 2015,
+    "payout": 205.95
+   },
+   "yearsWithPayoutPct": 1,
+   "avgTriggerDays": 6.46,
+   "avgLossDays": 8.1,
+   "avgMissedLossDays": 5.61,
+   "coveredLossShare": 0.184,
+   "payoutToLossOnTriggerDays": 0.337,
+   "gaugeAgreement": 0.357,
+   "byPeril": {
+    "rain": 101,
+    "heat": 36.75,
+    "haze": 23.85
+   }
+  },
+  "prep": {
+   "forecastDays": 713,
+   "forecastAlertsPerYear": 24.6,
+   "advancesPerYear": 4.1,
+   "hitRate": 0.021,
+   "triggersForewarned": 0.5,
+   "netCostPerYear": 0
+  },
+  "quote": {
+   "annualPremium": 268.68,
+   "weeklyPremium": 5.17,
+   "dailyPremium": 0.74,
+   "pctOfDailyIncome": 0.0061,
+   "breakdown": {
+    "purePremium": 161.59,
+    "prepPayCost": 0,
+    "trendLoad": 24.03,
+    "catLoad": 13.2,
+    "expenses": 53.74,
+    "margin": 16.12
+   },
+   "zoneFactor": 1.034,
+   "rawZoneFactor": 1.034,
+   "expectedLossRatio": 0.691
+  },
+  "years": [
+   {
+    "year": 2014,
+    "days": 7.7,
+    "payout": 203.12
+   },
+   {
+    "year": 2015,
+    "days": 9,
+    "payout": 205.95
+   },
+   {
+    "year": 2016,
+    "days": 4,
+    "payout": 78.35
+   },
+   {
+    "year": 2017,
+    "days": 4.9,
+    "payout": 169.43
+   },
+   {
+    "year": 2018,
+    "days": 4.4,
+    "payout": 139.9
+   },
+   {
+    "year": 2019,
+    "days": 7,
+    "payout": 118.86
+   },
+   {
+    "year": 2020,
+    "days": 5,
+    "payout": 148.05
+   },
+   {
+    "year": 2021,
+    "days": 6.7,
+    "payout": 180.54
+   },
+   {
+    "year": 2022,
+    "days": 7.1,
+    "payout": 188.91
+   },
+   {
+    "year": 2023,
+    "days": 6,
+    "payout": 113.88
+   },
+   {
+    "year": 2024,
+    "days": 7,
+    "payout": 185.94
+   },
+   {
+    "year": 2025,
+    "days": 6,
+    "payout": 149.53
+   },
+   {
+    "year": 2026,
+    "days": 8.1,
+    "payout": 191.15
+   }
+  ]
+ },
+ "replay": {
+  "centresPaid": 55,
+  "stallsPaid": 2822,
+  "forewarned": 0,
+  "close": 27,
+  "capped": 0,
+  "clear": 38,
+  "byPeril": {
+   "rain": 55
+  },
+  "gaugesReporting": 45,
+  "gaugesOverT1": 25,
+  "wettest": [
+   {
+    "id": "S35",
+    "name": "Old Toh Tuck Road",
+    "lat": 1.3325,
+    "lon": 103.755,
+    "r60": 98.6,
+    "rain": 170.6
+   },
+   {
+    "id": "S120",
+    "name": "Botanic Garden",
+    "lat": 1.3087,
+    "lon": 103.818,
+    "r60": 83,
+    "rain": 130.6
+   },
+   {
+    "id": "S115",
+    "name": "Tuas South Avenue 3",
+    "lat": 1.2938,
+    "lon": 103.6184,
+    "r60": 80.4,
+    "rain": 113.2
+   },
+   {
+    "id": "S44",
+    "name": "Nanyang Avenue",
+    "lat": 1.3458,
+    "lon": 103.6817,
+    "r60": 79.6,
+    "rain": 121
+   },
+   {
+    "id": "S77",
+    "name": "Alexandra Road",
+    "lat": 1.2937,
+    "lon": 103.8127,
+    "r60": 77.8,
+    "rain": 126.8
+   }
+  ],
+  "maxPsi": 64
+ },
+ "replayForecast": null,
+ "hazeReplay": {
+  "centresPaid": 0,
+  "stallsPaid": 0,
+  "forewarned": 0,
+  "close": 0,
+  "capped": 114,
+  "clear": 6,
+  "byPeril": {},
+  "gaugesReporting": 50,
+  "gaugesOverT1": 0,
+  "wettest": [
+   {
+    "id": "S07",
+    "name": "Macritchie Reservoir",
+    "lat": 1.3418,
+    "lon": 103.8339,
+    "r60": 0,
+    "rain": 0
+   },
+   {
+    "id": "S08",
+    "name": "Lower Peirce Reservoir",
+    "lat": 1.37,
+    "lon": 103.8271,
+    "r60": 0,
+    "rain": 0
+   },
+   {
+    "id": "S11",
+    "name": "Choa Chu Kang Road",
+    "lat": 1.3746,
+    "lon": 103.6938,
+    "r60": 0,
+    "rain": 0
+   },
+   {
+    "id": "S24",
+    "name": "Changi Meteorological Station",
+    "lat": 1.3678,
+    "lon": 103.9823,
+    "r60": 0,
+    "rain": 0
+   },
+   {
+    "id": "S33",
+    "name": "Jurong Pier Road",
+    "lat": 1.3082,
+    "lon": 103.71,
+    "r60": 0,
+    "rain": 0
+   }
+  ],
+  "maxPsi": 322
+ },
+ "sims": {
+  "flash": "Paid S$66 (S$72 less S$6 advanced last night) — rain level 2 | gauge S79",
+  "outage": "Paid S$30 (S$36 less S$6 advanced last night) — rain level 1 | gauge S118",
+  "capped": "Trigger reached, but the cap for this year is used up | gauge S79"
+ },
+ "bedok": {
+  "centres": 10,
+  "stalls": 549,
+  "paidCentres": 10,
+  "perStallTransfer": 48,
+  "advance": 0,
+  "likelyLoss": 36.48
+ },
+ "product": {
+  "segment": "hawker",
+  "insuredDailyIncome": 120,
+  "perils": {
+   "rain": {
+    "enabled": true,
+    "maxDays": 4,
+    "tiers": [
+     {
+      "threshold": 50,
+      "payoutPct": 0.3
+     },
+     {
+      "threshold": 70,
+      "payoutPct": 0.6
+     }
+    ]
+   },
+   "heat": {
+    "enabled": true,
+    "maxDays": 3,
+    "siteOffset": 0,
+    "tiers": [
+     {
+      "threshold": 33,
+      "payoutPct": 0.1
+     },
+     {
+      "threshold": 34,
+      "payoutPct": 0.25
+     }
+    ]
+   },
+   "haze": {
+    "enabled": true,
+    "maxDays": 4,
+    "tiers": [
+     {
+      "threshold": 101,
+      "payoutPct": 0.15
+     },
+     {
+      "threshold": 201,
+      "payoutPct": 0.4
+     }
+    ]
+   }
+  },
+  "maxPayableDaysPerYear": 8,
+  "prepPay": {
+   "enabled": true,
+   "minSeverity": 3,
+   "heatForecastC": 35,
+   "advancePct": 0.05,
+   "maxPerYear": 4,
+   "recoup": true
+  },
+  "loadings": {
+   "expenseRatio": 0.2,
+   "riskMargin": 0.06,
+   "climateTrend": 0.02,
+   "catLoad": 0.25,
+   "zoneCap": 0.15
+  },
+  "stationRadiusKm": 5,
+  "lossModel": {
+   "rainSlope": 0.01,
+   "rainFree": 12,
+   "rainCap": 0.6,
+   "heatSlope": 0.08,
+   "heatFree": 31,
+   "heatCap": 0.35,
+   "hazeBase": 0.1,
+   "hazeSlope": 0.0015,
+   "hazeCap": 0.5,
+   "lossDayThreshold": 0.25
+  }
+ }
+}

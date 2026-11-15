@@ -1,0 +1,1 @@
+[{"wait":12000},{"eval":"(()=>{const el=[...document.querySelectorAll(\"span\")].find(s=>/life of one payout/i.test(s.textContent));const box=el.closest(\".sheet\");window.scrollTo(0, box.getBoundingClientRect().top + window.scrollY - 140);return !!box})()"},{"wait":3500},{"shot":"03-journey"}]

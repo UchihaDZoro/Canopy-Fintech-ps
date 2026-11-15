@@ -1,0 +1,1 @@
+[{"wait":9000},{"eval":"window.dispatchEvent(new Event(\"tour:sim-run\"))"},{"wait":13500},{"eval":"window.scrollTo(0, document.querySelector(\"[data-tour=sim-stage]\").getBoundingClientRect().top + window.scrollY - 70)"},{"wait":1500},{"shot":"09-simulate"}]

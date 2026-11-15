@@ -14,7 +14,7 @@ if (!fs.existsSync(cacheFile) || process.env.REFRESH) {
   for (let i = 0; i < 20 && !url; i++) {
     await sleep(2000);
     const p = await fetchRetry(`${BASE}/poll-download`, { asJson: true });
-    if (p?.data?.status === "DOWNLOAD_SUCCESS") url = p.data.url;
+    if (p?.data?.url && (!p.data.status || p.data.status === "DOWNLOAD_SUCCESS")) url = p.data.url;
   }
   if (!url) throw new Error("PSI download did not become ready");
   const csv = await fetchRetry(url);
@@ -24,16 +24,27 @@ if (!fs.existsSync(cacheFile) || process.env.REFRESH) {
 const lines = fs.readFileSync(cacheFile, "utf8").split(/\r?\n/).filter(Boolean);
 const header = lines[0].split(",").map((h) => h.trim().replace(/^"|"$/g, "").toLowerCase());
 console.log("  PSI columns:", header.join(" | "));
-const iTime = header.findIndex((h) => h.includes("date") || h.includes("time"));
+// First column is the timestamp ("24hr_psi" header), formatted D/M/YYYY H:MM
+const iTime = 0;
 const regions = ["north", "south", "east", "west", "central"];
+function toIsoDate(ts) {
+  const m = ts.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+(\d{1,2}):/);
+  if (m) {
+    // Hour 0:00 belongs to the 24h period ending at midnight -> previous day
+    const d = new Date(Date.UTC(+m[3], +m[2] - 1, +m[1]));
+    if (+m[4] === 0) d.setUTCDate(d.getUTCDate() - 1);
+    return d.toISOString().slice(0, 10);
+  }
+  return /^\d{4}-\d{2}-\d{2}/.test(ts) ? ts.slice(0, 10) : null;
+}
 const iReg = Object.fromEntries(regions.map((r) => [r, header.findIndex((h) => h.includes(r))]));
 
 const daily = new Map(); // date -> {region: max}
 for (const line of lines.slice(1)) {
   const c = line.split(",").map((x) => x.trim().replace(/^"|"$/g, ""));
   const ts = c[iTime];
-  if (!ts) continue;
-  const date = ts.slice(0, 10);
+  const date = ts ? toIsoDate(ts) : null;
+  if (!date) continue;
   const rec = daily.get(date) ?? {};
   for (const r of regions) {
     const v = Number(c[iReg[r]]);

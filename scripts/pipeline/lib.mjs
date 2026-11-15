@@ -21,11 +21,14 @@ export function ensureDir(p) {
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** fetch with retries, exponential backoff and data.gov.sg rate-limit handling */
-export async function fetchRetry(url, { tries = 6, asJson = false, okStatuses = [200] } = {}) {
+export async function fetchRetry(url, { tries = 6, asJson = false, okStatuses = [200, 201, 202] } = {}) {
   let lastErr;
   for (let i = 0; i < tries; i++) {
     try {
-      const res = await fetch(url, { headers: { "User-Agent": UA } });
+      const headers = { "User-Agent": UA };
+      // Optional free key from data.gov.sg raises the anonymous rate limit
+      if (process.env.DATA_GOV_SG_API_KEY && url.includes("data.gov.sg")) headers["x-api-key"] = process.env.DATA_GOV_SG_API_KEY;
+      const res = await fetch(url, { headers });
       if (res.status === 404) return null;
       if (res.status === 429) {
         await sleep(11000);

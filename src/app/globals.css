@@ -1,26 +1,274 @@
 @import "tailwindcss";
 
+/* ───────────── Canopy · "The Weather Ledger" ─────────────
+   Paper for what people read, scope (dark) for what machines measure.
+   One colour = one meaning, everywhere. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f4f1e8;
+  --paper-2: #ebe6d8;
+  --paper-3: #e2dccb;
+  --card: #fbf9f3;
+  --ink: #16150f;
+  --ink-2: #4a473d;
+  --ink-3: #868170;
+  --rule: rgba(22, 21, 15, 0.13);
+  --rule-2: rgba(22, 21, 15, 0.24);
+
+  --plate: #0b6e4f;      /* NEA stall-plate green: cover, success, Canopy */
+  --plate-2: #e3efe8;
+  --marigold: #e9a100;   /* money paid */
+  --marigold-2: #fbf0d0;
+  --rain: #1d5fd1;
+  --rain-2: #e2ebfa;
+  --heat: #d2480f;
+  --heat-2: #f9e6dc;
+  --haze: #6f52a3;
+  --haze-2: #ece6f5;
+  --alert: #c0262d;      /* lost, not paid */
+  --alert-2: #f8e1df;
+
+  --scope: #0e1411;
+  --scope-2: #151d19;
+  --scope-line: rgba(140, 245, 181, 0.14);
+  --phosphor: #8cf5b5;
+  --phosphor-dim: #5c9f78;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-plate: var(--plate);
+  --color-plate-2: var(--plate-2);
+  --color-marigold: var(--marigold);
+  --color-marigold-2: var(--marigold-2);
+  --color-rain: var(--rain);
+  --color-rain-2: var(--rain-2);
+  --color-heat: var(--heat);
+  --color-heat-2: var(--heat-2);
+  --color-haze: var(--haze);
+  --color-haze-2: var(--haze-2);
+  --color-alert: var(--alert);
+  --color-alert-2: var(--alert-2);
+  --color-scope: var(--scope);
+  --color-scope-2: var(--scope-2);
+  --color-phosphor: var(--phosphor);
+  --color-phosphor-dim: var(--phosphor-dim);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--paper);
+  color-scheme: light;
 }
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--marigold-2);
+}
+
+/* Signage headline: condensed, heavy, tight */
+.sign {
+  font-family: var(--font-archivo);
+  font-stretch: 62%;
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.sign-soft {
+  font-family: var(--font-archivo);
+  font-stretch: 75%;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+.mono {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+.caps {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10.5px;
+}
+
+/* Paper texture: subtle fibre + faint ruled baseline grid */
+.paper-bg {
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(22, 21, 15, 0.035) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+.ruled {
+  background-image: linear-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 100% 28px;
+}
+
+/* Sheet = printed panel with registration ticks in the corners */
+.sheet {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--rule-2);
+}
+.sheet::before,
+.sheet::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  border-color: var(--ink);
+}
+.sheet::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.sheet::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+/* Scope = dark instrument panel for live machine data */
+.scope {
+  background-color: var(--scope);
+  background-image: radial-gradient(120% 120% at 0% 0%, #17211c 0%, var(--scope) 60%);
+  color: #d7e8de;
+  border: 1px solid #000;
+  box-shadow: inset 0 0 0 1px rgba(140, 245, 181, 0.06);
+}
+.scope.scope-grid {
+  background-image: linear-gradient(var(--scope-line) 1px, transparent 1px), linear-gradient(90deg, var(--scope-line) 1px, transparent 1px),
+    radial-gradient(120% 120% at 0% 0%, #17211c 0%, var(--scope) 60%);
+  background-size: 22px 22px, 22px 22px, 100% 100%;
+}
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(140, 245, 181, 0.07) 50%, transparent 100%);
+  height: 30%;
+  animation: scan 4.5s linear infinite;
+  pointer-events: none;
+}
+@keyframes scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(400%); }
+}
+
+/* Stall number plate — the step label motif */
+.plate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  background: var(--plate);
+  color: #fff;
+  font-family: var(--font-plex-mono), monospace;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 3px 8px 3px 7px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.35);
+}
+
+/* Thermal receipt */
+.receipt {
+  background: #fffdf7;
+  color: #1b1a14;
+  font-family: var(--font-plex-mono), monospace;
+  position: relative;
+  filter: drop-shadow(0 18px 24px rgba(22, 21, 15, 0.16));
+  --tooth: 7px;
+  -webkit-mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--tooth) * 2) var(--tooth) repeat-x,
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth)) no-repeat;
+  mask:
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--tooth) * 2) var(--tooth) repeat-x,
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth)) no-repeat;
+}
+.dotted-rule {
+  border-top: 1.5px dashed rgba(27, 26, 20, 0.35);
+}
+
+.link-u {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.link-u:hover {
+  background-size: 100% 1.5px;
+}
+
+@keyframes blink { 50% { opacity: 0.25; } }
+.blink { animation: blink 1.4s steps(2, start) infinite; }
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--paper-2), var(--paper-3), var(--paper-2));
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+input[type="range"].range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ink) var(--p, 50%), var(--rule-2) var(--p, 50%));
+  outline: none;
+}
+input[type="range"].range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 18px;
+  border-radius: 2px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  cursor: grab;
+}
+input[type="range"].range::-moz-range-thumb {
+  width: 12px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--rule-2); border-radius: 99px; }
+
+.maplibregl-ctrl-attrib { background: rgba(244, 241, 232, 0.8) !important; color: var(--ink-3) !important; font-size: 10px !important; }
+.maplibregl-ctrl-attrib a { color: var(--ink-2) !important; }
+
+/* Tour spotlight */
+.tour-ring {
+  box-shadow: 0 0 0 9999px rgba(22, 21, 15, 0.55), 0 0 0 3px var(--marigold);
+  border-radius: 6px;
+  transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }

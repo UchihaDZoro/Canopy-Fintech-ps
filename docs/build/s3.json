@@ -1,0 +1,1 @@
+[{"wait":6000},{"eval":"window.dispatchEvent(new Event(\"tour:pick-tampines\"))"},{"wait":7000},{"eval":"window.scrollTo(0, document.querySelector(\"[data-tour=timemachine]\").getBoundingClientRect().top + window.scrollY - 70)"},{"wait":3000},{"shot":"08-timemachine"}]
