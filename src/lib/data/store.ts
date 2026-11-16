@@ -137,8 +137,8 @@ type Cache = {
   hawkers?: HawkerCentre[];
   climate?: ClimateLong;
 };
-const g = globalThis as unknown as { __canopy?: Cache };
-const cache: Cache = (g.__canopy ??= { mss: new Map() });
+const g = globalThis as unknown as { __daycover?: Cache };
+const cache: Cache = (g.__daycover ??= { mss: new Map() });
 
 export const store = {
   stations: () => (cache.stations ??= load<StationIndex[]>("stations.json")),

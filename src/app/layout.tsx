@@ -11,7 +11,7 @@ const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: 
 const plex = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
-  title: "Canopy — climate income cover by Income Insurance",
+  title: "Daycover+ — climate income cover by Income Insurance",
   description:
     "Parametric income cover for Singapore's hawkers: settled on official NEA and MSS readings at your own gauge, with a printed receipt for every decision.",
 };

@@ -1,4 +1,4 @@
-// Canopy — core domain types. Every number that shapes a payout is a parameter of
+// Daycover+ — core domain types. Every number that shapes a payout is a parameter of
 // ProductSpec (editable in the Actuary Studio), never a constant buried in code.
 
 export type Peril = "rain" | "heat" | "haze";

@@ -1,4 +1,4 @@
-# Canopy — design & product plan (v2)
+# Daycover+ — design & product plan (v2)
 
 ## 1. Why v1 felt generic
 Dark navy glass cards, gradient serif headlines, pulse-dot pills and emerald accents are the default look of
@@ -6,7 +6,7 @@ AI-generated landing pages. The product logic underneath was strong, but the int
 couldn't see what data was fetched, which rule fired, or why a stall was or wasn't paid.
 
 ## 2. Concept: "The Weather Ledger"
-Canopy is insurance that pays on public instruments. The interface should feel like a **field almanac crossed with
+Daycover+ is insurance that pays on public instruments. The interface should feel like a **field almanac crossed with
 a hawker centre**: printed, precise, accountable.
 
 | Element | Choice | Why |

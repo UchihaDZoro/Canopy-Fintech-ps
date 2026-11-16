@@ -36,7 +36,7 @@ export function Nav() {
       <div className="mx-auto flex h-14 max-w-[1400px] items-center gap-6 px-5">
         <Link href="/" className="flex items-center gap-2.5">
           <Logo className="h-7 w-7" />
-          <span className="sign text-[22px] leading-none tracking-tight">Canopy</span>
+          <span className="sign text-[22px] leading-none tracking-tight">Daycover+</span>
           <span className="caps hidden text-ink-3 sm:inline">by Income</span>
         </Link>
         <nav className="hidden h-full items-stretch md:flex" data-tour="nav">

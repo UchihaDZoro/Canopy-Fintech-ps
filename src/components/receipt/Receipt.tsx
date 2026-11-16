@@ -20,7 +20,7 @@ export function Receipt({ t, title, compact = false }: { t: DecisionTrace; title
     >
       {/* header */}
       <div className="text-center">
-        <div className="text-[13px] font-semibold tracking-[0.2em]">CANOPY · INCOME</div>
+        <div className="text-[13px] font-semibold tracking-[0.2em]">DAYCOVER+ · INCOME</div>
         <div className="text-[10px] text-[#6b675a]">Parametric settlement record</div>
         <div className="mx-auto mt-2 max-w-[78%] font-semibold">{title ?? t.location.label ?? `${t.location.lat.toFixed(4)}, ${t.location.lon.toFixed(4)}`}</div>
         <div className="text-[10px] text-[#6b675a]">

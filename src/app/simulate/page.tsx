@@ -216,6 +216,7 @@ export default function SimulatePage() {
           "circle-stroke-color": "#f4f1e8",
         },
         label: { field: "name", minzoom: 12 },
+        column: { height: ["case", ["get", "paid"], 1600, ["interpolate", ["linear"], ["get", "stalls"], 10, 120, 200, 400]], radius: 200 },
       },
     ],
     [r, settled]
@@ -491,7 +492,7 @@ export default function SimulatePage() {
                 <figure className="sheet">
                   <div className="caps border-b border-[var(--rule-2)] px-4 py-2 text-ink">Fig. — hawker centres in {area.toLowerCase()}</div>
                   <div className="relative h-[360px]">
-                    <MapView className="absolute inset-0" layers={areaLayers} pitch={0} fly={areaFly} />
+                    <MapView className="absolute inset-0" layers={areaLayers} fly={areaFly} />
                   </div>
                 </figure>
               )}
@@ -589,7 +590,7 @@ function PhoneThread({
           <div className="absolute left-1/2 top-2 h-5 w-20 -translate-x-1/2 rounded-full bg-[#16150f]" />
           <div className="border-b border-[var(--rule-2)] px-4 pb-2 pt-9 text-center">
             <div className="mx-auto flex h-8 w-8 items-center justify-center rounded-full bg-plate text-[11px] font-bold text-white">IN</div>
-            <div className="mt-1 text-[12px] font-semibold">INCOME · Canopy</div>
+            <div className="mt-1 text-[12px] font-semibold">INCOME · Daycover+</div>
             <div className="mono text-[10px] text-ink-3">{phone ? `to ${phone}` : "SMS"}</div>
           </div>
           <div className="space-y-3 p-3">

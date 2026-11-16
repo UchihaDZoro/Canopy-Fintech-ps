@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DEFAULT_PRODUCT as P } from "@/lib/engine/product";
 import { Eyebrow, Reveal } from "@/components/ui";
 
-// Income's constraints, each with how Canopy answers it and where a judge can see it working.
+// Income's constraints, each with how Daycover+ answers it and where a judge can see it working.
 const ROWS: [string, string, string, string][] = [
   ["Insurable interest", `Sold to licensed stallholders; payout sized to verified daily earnings (S$${P.insuredDailyIncome}) and kept below modelled loss.`, "/cover", "Get covered → quote"],
   ["Say plainly when it doesn't pay", "Bad days that wouldn't have paid are shown at your own stall before purchase, and on every NOT PAID receipt.", "/cover", "Time Machine"],

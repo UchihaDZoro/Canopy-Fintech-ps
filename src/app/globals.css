@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ───────────── Canopy · "The Weather Ledger" ─────────────
+/* ───────────── Daycover+ · "The Weather Ledger" ─────────────
    Paper for what people read, scope (dark) for what machines measure.
    One colour = one meaning, everywhere. */
 :root {
@@ -14,7 +14,7 @@
   --rule: rgba(22, 21, 15, 0.13);
   --rule-2: rgba(22, 21, 15, 0.24);
 
-  --plate: #0b6e4f;      /* NEA stall-plate green: cover, success, Canopy */
+  --plate: #0b6e4f;      /* NEA stall-plate green: cover, success, Daycover+ */
   --plate-2: #e3efe8;
   --marigold: #e9a100;   /* money paid */
   --marigold-2: #fbf0d0;

@@ -22,7 +22,7 @@ export function QuotePanel({ data }: { data: BacktestResponse }) {
     <div className="grid gap-4 lg:grid-cols-[1.1fr_1fr]">
       <Card className="relative overflow-hidden p-6 md:p-8">
         <div className="relative">
-          <div className="text-[11px] uppercase tracking-[0.16em] text-ink-2">Your Canopy premium</div>
+          <div className="text-[11px] uppercase tracking-[0.16em] text-ink-2">Your Daycover+ premium</div>
           <div className="mt-2 flex items-end gap-3">
             <div className="sign-soft text-8xl leading-none text-plate">
               <Counter key={quote.weeklyPremium} value={quote.weeklyPremium} decimals={2} prefix="S$" duration={1.2} />

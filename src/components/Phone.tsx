@@ -41,7 +41,7 @@ export function Phone({ notes, header, className = "" }: { notes: PhoneNote[]; h
                   <div className="mb-1 flex items-center justify-between text-[10px] uppercase tracking-wider text-white/50">
                     <span className="flex items-center gap-1.5">
                       <i className="inline-block h-3.5 w-3.5 rounded-[4px]" style={{ background: n.accent ?? "#34d399" }} />
-                      {n.app ?? "Canopy · Income"}
+                      {n.app ?? "Daycover+ · Income"}
                     </span>
                     <span>{n.time}</span>
                   </div>

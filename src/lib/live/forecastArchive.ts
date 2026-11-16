@@ -6,8 +6,8 @@ import { severity } from "./nea";
 // Evening-before NEA forecast for a given day: from the pipeline archive if sampled,
 // otherwise fetched on demand from data.gov.sg (and memoised).
 const REG: Region[] = ["north", "south", "east", "west", "central"];
-const g = globalThis as unknown as { __canopyFc?: Map<string, EveningForecast | null> };
-const memo = (g.__canopyFc ??= new Map());
+const g = globalThis as unknown as { __daycoverFc?: Map<string, EveningForecast | null> };
+const memo = (g.__daycoverFc ??= new Map());
 
 export interface EveningForecast {
   target: string;
@@ -40,7 +40,7 @@ export async function eveningForecastFor(target: string): Promise<EveningForecas
   d.setUTCDate(d.getUTCDate() - 1);
   const issueDay = d.toISOString().slice(0, 10);
   try {
-    const headers: Record<string, string> = { "User-Agent": "Canopy/1.0" };
+    const headers: Record<string, string> = { "User-Agent": "Daycover/1.0" };
     if (process.env.DATA_GOV_SG_API_KEY) headers["x-api-key"] = process.env.DATA_GOV_SG_API_KEY;
     // One retry: data.gov.sg occasionally rate-limits (code 24) or drops a connection
     let j: { code?: number; data?: { records?: unknown[] } } | null = null;

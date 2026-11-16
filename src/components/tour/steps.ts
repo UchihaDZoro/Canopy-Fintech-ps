@@ -13,7 +13,7 @@ export const TOUR_STEPS: TourStep[] = [
     route: "/",
     target: "[data-tour=hero]",
     title: "Insurance that pays on a public reading",
-    body: "Canopy is income cover for hawkers, underwritten by Income. No claim forms: it pays when an official NEA / MSS instrument near your stall crosses a printed level.",
+    body: "Daycover+ is income cover for hawkers, underwritten by Income. No claim forms: it pays when an official NEA / MSS instrument near your stall crosses a printed level.",
     place: "right",
   },
   {
@@ -68,7 +68,7 @@ export const TOUR_STEPS: TourStep[] = [
     route: "/cover",
     target: "[data-tour=picker]",
     title: "The stallholder's view",
-    body: "Pick a hawker centre. Canopy matches it to the nearest working gauge, WBGT station and PSI region — with fallbacks if one goes offline.",
+    body: "Pick a hawker centre. Daycover+ matches it to the nearest working gauge, WBGT station and PSI region — with fallbacks if one goes offline.",
     action: "pick-tampines",
     place: "right",
   },

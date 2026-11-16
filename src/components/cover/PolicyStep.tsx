@@ -24,7 +24,7 @@ export function PolicyStep({ data, centre }: { data: BacktestResponse; centre: {
     const at = new Date().toISOString();
     setBought({ no, at });
     try {
-      localStorage.setItem("canopy.policy", JSON.stringify({ no, at, centre, weekly: data.quote.weeklyPremium, income: data.product.insuredDailyIncome }));
+      localStorage.setItem("daycover.policy", JSON.stringify({ no, at, centre, weekly: data.quote.weeklyPremium, income: data.product.insuredDailyIncome }));
     } catch {
       /* storage may be unavailable */
     }
@@ -183,7 +183,7 @@ function PolicyCard({ no, centre, gauge, weekly, income }: { no: string; centre:
         <div className="relative flex h-full flex-col justify-between" style={{ transform: "translateZ(40px)" }}>
           <div className="flex items-start justify-between">
             <div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-white/60">Canopy · Income Insurance</div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-white/60">Daycover+ · Income Insurance</div>
               <div className="mt-1 sign-soft text-3xl text-white">Climate income cover</div>
             </div>
             <div className="rounded-full bg-white/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Active</div>

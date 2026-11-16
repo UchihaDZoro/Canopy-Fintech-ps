@@ -1,10 +1,10 @@
-# Canopy — climate income cover for Singapore's hawkers
+# Daycover+ — climate income cover for Singapore's hawkers
 
 **Singapore–India Hackathon 2026 · FinTech / InsurTech track (Income Insurance)**
 
 > *How might we reimagine insurance, powered by data and AI, so that climate risk protection becomes affordable, accessible and actionable for every vulnerable household and SME in Singapore?*
 
-Canopy is a parametric income cover for hawkers and stallholders, designed to be underwritten by Income as a rider on Stallholder / SmartBiz360. It pays on **official NEA and MSS readings at the stall's own nearest gauge**. Every rule is **back-tested on 2014–2026 records** across all 123 NEA hawker centres. Nothing in the product is a hard-coded number: every trigger, payout, cap and loading is a parameter you can change in the Actuary Studio, and the island is re-priced live.
+Daycover+ is a parametric income cover for hawkers and stallholders, designed to be underwritten by Income as a rider on Stallholder / SmartBiz360. It pays on **official NEA and MSS readings at the stall's own nearest gauge**. Every rule is **back-tested on 2014–2026 records** across all 123 NEA hawker centres. Nothing in the product is a hard-coded number: every trigger, payout, cap and loading is a parameter you can change in the Actuary Studio, and the island is re-priced live.
 
 ## What makes it different
 
@@ -118,7 +118,7 @@ DESIGN.md                design and product rationale ("The Weather Ledger")
 
 - Daily MSS records give the wettest hour of the day, not whether it fell during trading hours. The live trigger *does* use trading hours (from 08:00, 5-min data); the back-test is therefore slightly conservative on night storms.
 - Translations are drafts for Income's approved-wording review. Tamil needs 2 SMS segments; EN / BM / 中文 fit in one.
-- **Roadmap — Canopy Plus:** an opt-in dual trigger that also checks a dip in the stall's own PayNow / SGQR takings (with consent), for a cheaper premium and lower basis risk. It's not in this build, because it needs real merchant data rather than invented data.
+- **Roadmap — Daycover+ Max:** an opt-in dual trigger that also checks a dip in the stall's own PayNow / SGQR takings (with consent), for a cheaper premium and lower basis risk. It's not in this build, because it needs real merchant data rather than invented data.
 - Platform workers (NTUC NDCA/NPHVA) reuse the same engine with trading-window and income parameters; hawkers are the launch segment because they match the case study (SmartBiz360 / Stallholder).
 
 *Prototype for a hackathon. Figures are back-tests, not offers of insurance.*

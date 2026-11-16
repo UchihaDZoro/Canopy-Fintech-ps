@@ -156,6 +156,7 @@ function Live() {
             "circle-stroke-color": "#0b2f75",
           },
           label: { field: "lbl", minzoom: 10, color: "#0b2f75" },
+          column: { height: ["*", ["get", "v"], 35], radius: 380, opacity: 0.7 },
         },
         { id: "wbgt", interactive: false, points: [], paint: { "circle-radius": 0 } },
         {
@@ -169,6 +170,7 @@ function Live() {
               sel: c.id === selId,
               color: c.status === "paid" ? (revealedIds.has(c.id) ? MONEY : "#16150f") : STATE_COLOR[c.status],
               r: c.status === "paid" && revealedIds.has(c.id) ? 7 : 4,
+              h: c.status === "paid" && revealedIds.has(c.id) ? 1400 : c.status === "close" ? 420 : c.status === "capped" ? 300 : 110,
             },
           })),
           paint: {
@@ -178,6 +180,7 @@ function Live() {
             "circle-stroke-color": ["case", ["get", "sel"], "#16150f", "#f4f1e8"],
           },
           label: { field: "name", minzoom: 13 },
+          column: { height: ["case", ["get", "sel"], 2000, ["get", "h"]], radius: 230 },
         },
       ];
     }
@@ -195,6 +198,7 @@ function Live() {
           "circle-stroke-color": "#1d5fd1",
         },
         label: { field: "lbl", minzoom: 10, color: "#0b2f75" },
+        column: { height: ["*", ["get", "v"], 35], radius: 380, opacity: 0.7 },
       },
       {
         id: "wbgt",
@@ -206,6 +210,7 @@ function Live() {
           "circle-stroke-width": 1.5,
           "circle-stroke-color": "#d2480f",
         },
+        column: { height: ["*", ["max", 0, ["-", ["get", "v"], 26]], 160], radius: 260, opacity: 0.85 },
       },
       {
         id: "centres",
@@ -213,7 +218,12 @@ function Live() {
           id: c.id,
           lon: c.lon,
           lat: c.lat,
-          props: { name: c.name, sel: c.id === selId, color: c.state === "paid" ? MONEY : c.state === "watch" ? "#d2480f" : c.prepPay ? "#0b6e4f" : "#16150f" },
+          props: {
+            name: c.name,
+            sel: c.id === selId,
+            color: c.state === "paid" ? MONEY : c.state === "watch" ? "#d2480f" : c.prepPay ? "#0b6e4f" : "#16150f",
+            h: c.state === "paid" ? 1400 : c.state === "watch" ? 520 : c.prepPay ? 320 : 110,
+          },
         })),
         paint: {
           "circle-radius": ["case", ["get", "sel"], 10, 4.5],
@@ -222,6 +232,7 @@ function Live() {
           "circle-stroke-color": ["case", ["get", "sel"], "#16150f", "#f4f1e8"],
         },
         label: { field: "name", minzoom: 13 },
+        column: { height: ["case", ["get", "sel"], 2000, ["get", "h"]], radius: 230 },
       },
     ];
   }, [mode, replay, live.data, selId, revealedIds]);
@@ -279,7 +290,7 @@ function Live() {
                 <span className="caps text-ink-3">click a centre for its receipt</span>
               </div>
               <div className="relative h-[560px]">
-                <MapView className="absolute inset-0" layers={layers} pitch={0} zoom={10.9} onSelect={(l, id) => l === "centres" && pick(id)} fly={fly} />
+                <MapView className="absolute inset-0" layers={layers} zoom={10.9} onSelect={(l, id) => l === "centres" && pick(id)} fly={fly} />
               </div>
               <Legend live />
             </figure>
@@ -355,7 +366,7 @@ function Live() {
                 <span className="caps text-ink-3">click a centre</span>
               </div>
               <div className="relative h-[560px]">
-                <MapView className="absolute inset-0" layers={layers} pitch={0} zoom={10.9} onSelect={(l, id) => l === "centres" && pick(id)} fly={fly} />
+                <MapView className="absolute inset-0" layers={layers} zoom={10.9} onSelect={(l, id) => l === "centres" && pick(id)} fly={fly} />
                 {replay && (
                   <div className="absolute right-3 top-3 border border-[var(--rule-2)] bg-card/95 p-2.5">
                     <div className="caps text-ink-3">24-h PSI by region</div>

@@ -13,7 +13,7 @@ export function Honesty({ data }: { data: BacktestResponse }) {
       <Card className="p-6 lg:col-span-2">
         <div className="text-[11px] uppercase tracking-[0.16em] text-alert">Said plainly</div>
         <p className="mt-3 sign-soft text-3xl leading-snug">
-          Over {period.years.toFixed(1)} years Canopy would have paid you on about{" "}
+          Over {period.years.toFixed(1)} years Daycover+ would have paid you on about{" "}
           <span className="text-plate">{stats.avgTriggerDays.toFixed(1)} days a year</span>. On about{" "}
           <span className="text-alert">{stats.avgMissedLossDays.toFixed(1)} other days a year</span> you probably lost at least{" "}
           {Math.round(p.lossModel.lossDayThreshold * 100)}% of takings and it would have paid <em>nothing</em>.

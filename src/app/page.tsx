@@ -69,7 +69,7 @@ export default function Home() {
               </span>
             </motion.h1>
             <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-ink-2">
-              <b className="text-ink">Canopy</b> is income cover for Singapore&apos;s hawkers, designed with Income. It pays automatically when an{" "}
+              <b className="text-ink">Daycover+</b> is income cover for Singapore&apos;s hawkers, designed with Income. It pays automatically when an{" "}
               <b className="text-ink">official rain gauge, heat sensor or haze reading</b> near your stall crosses a printed level — and prints a receipt
               explaining every decision. Priced on 12 years of records{weekly ? <> at about <b className="mono text-ink">{sgd(weekly, 2)}</b> a week</> : ""}.
             </p>
@@ -120,7 +120,7 @@ export default function Home() {
               </div>
             </div>
             <figcaption className="border-t border-[var(--rule-2)] px-4 py-2 text-[11.5px] text-ink-2">
-              Each of URA&apos;s 55 planning areas is raised by what Canopy would have paid a stall there, replaying every day since 2014 on the nearest
+              Each of URA&apos;s 55 planning areas is raised by what Daycover+ would have paid a stall there, replaying every day since 2014 on the nearest
               MSS gauge. Rain falling on the model mirrors the share of gauges reporting rain right now ({Math.round(wet * 100)}%).
             </figcaption>
           </figure>

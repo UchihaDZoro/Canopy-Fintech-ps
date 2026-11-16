@@ -1,4 +1,4 @@
-// Shared helpers for the Canopy data pipeline.
+// Shared helpers for the Daycover+ data pipeline.
 // All data comes from public, independent sources:
 //   - data.gov.sg real-time APIs (NEA / MSS): station metadata, WBGT, PSI
 //   - weather.gov.sg MSS historical daily records (1980s+): rainfall & temperature
@@ -11,7 +11,7 @@ export const ROOT = path.resolve(here, "..", "..");
 export const RAW = path.join(ROOT, "data", "raw");
 export const OUT = path.join(ROOT, "src", "data", "generated");
 
-export const UA = "Mozilla/5.0 (Canopy climate-cover research pipeline)";
+export const UA = "Mozilla/5.0 (Daycover+ climate-cover research pipeline)";
 
 export function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });

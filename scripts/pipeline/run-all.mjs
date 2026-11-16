@@ -1,4 +1,4 @@
-// Runs the whole Canopy data pipeline in order. Every step is resumable (raw downloads
+// Runs the whole Daycover+ data pipeline in order. Every step is resumable (raw downloads
 // are cached under data/raw), so re-running only fetches what is missing.
 //   npm run pipeline            → everything
 //   npm run pipeline -- 04 08   → only the named steps

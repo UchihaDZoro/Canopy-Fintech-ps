@@ -13,8 +13,8 @@ const ttlOf = (key: string) => TTL[key.split(":")[0]] ?? 240_000;
 type Entry<T> = { at: number; value: T };
 type Store = { cache: Map<string, Entry<unknown>>; wire: Map<string, WireFeed>; log: WireEvent[]; rainRecs?: Map<string, Map<string, RainRec>> };
 type RainRec = { timestamp: string; data: { stationId: string; value: number }[] };
-const g = globalThis as unknown as { __canopyLive?: Store };
-const S: Store = (g.__canopyLive ??= { cache: new Map(), wire: new Map(), log: [] });
+const g = globalThis as unknown as { __daycoverLive?: Store };
+const S: Store = (g.__daycoverLive ??= { cache: new Map(), wire: new Map(), log: [] });
 const cache = S.cache;
 const inflight = new Set<string>();
 
@@ -49,7 +49,7 @@ function pushLog(e: WireEvent) {
 }
 
 async function getJson(url: string, feed: string, trace?: Trace) {
-  const headers: Record<string, string> = { "User-Agent": "Canopy/1.0" };
+  const headers: Record<string, string> = { "User-Agent": "Daycover/1.0" };
   if (process.env.DATA_GOV_SG_API_KEY) headers["x-api-key"] = process.env.DATA_GOV_SG_API_KEY;
   const endpoint = url.replace("https://api-open.data.gov.sg", "").replace(/paginationToken=[^&]+/, "paginationToken=…");
   for (let i = 0; i < 3; i++) {

@@ -82,7 +82,7 @@ export function Rulebook({ meta }: { meta: MetaResponse | null }) {
   }, [v, used, forecastHeavy]);
 
   const sentence = r.win
-    ? `${PERIL_LABEL[r.win.k]} reached level ${r.win.t} at the official instrument, so Canopy pays ${sgd(r.gross)}${r.deducted ? `, less the ${sgd(r.deducted)} advanced last night` : ""}. No claim, no adjuster.`
+    ? `${PERIL_LABEL[r.win.k]} reached level ${r.win.t} at the official instrument, so Daycover+ pays ${sgd(r.gross)}${r.deducted ? `, less the ${sgd(r.deducted)} advanced last night` : ""}. No claim, no adjuster.`
     : r.capped
       ? "A level was reached, but this year's payable days are used up — the receipt records it and pays nothing."
       : `Nothing reached a printed level, so nothing is paid — even though takings may be down about ${sgd(r.loss)}. That's the honest edge of parametric cover.`;

@@ -52,6 +52,7 @@ export default function StudioPage() {
           "circle-opacity": 0.92,
         },
         label: { field: "name", minzoom: 12.8 },
+        column: { height: ["*", ["get", "w"], 260], radius: 240, opacity: 0.92 },
       },
     ],
     [d]
@@ -191,7 +192,7 @@ export default function StudioPage() {
 
           <div className="grid gap-4 xl:grid-cols-[1.2fr_1fr] [&>*]:min-w-0">
             <Card className="relative min-h-[380px] overflow-hidden">
-              <MapView className="absolute inset-0" layers={layers} pitch={30} zoom={10.4} />
+              <MapView className="absolute inset-0" layers={layers} zoom={10.4} />
               <div className="sheet absolute left-3 top-3 rounded-sm px-3 py-2 text-[11px] text-ink-2">
                 Colour = raw local risk vs island · <span className="text-plate">low</span> → <span className="text-heat">high</span>
               </div>

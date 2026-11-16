@@ -70,6 +70,7 @@ export default function CoverPage() {
           "circle-stroke-color": "#0b2f75",
         },
         label: { field: "name", minzoom: 12.2, color: "#0b2f75" },
+        column: { height: ["case", ["get", "first"], 1500, ["get", "used"], 800, 120], radius: 170, opacity: 0.8 },
       },
       {
         id: "centres",
@@ -81,6 +82,7 @@ export default function CoverPage() {
           "circle-stroke-color": ["case", ["get", "sel"], "#16150f", "#f4f1e8"],
         },
         label: { field: "name", minzoom: 13.5 },
+        column: { height: ["case", ["get", "sel"], 2200, ["interpolate", ["linear"], ["get", "stalls"], 10, 150, 200, 900]], radius: 160 },
       },
     ];
   }, [meta.data, hawkers, selId, data]);
@@ -165,7 +167,7 @@ export default function CoverPage() {
             <span className="caps text-ink-3">{sel ? "big blue = your gauge" : "tap a green dot"}</span>
           </div>
           <div className="relative flex-1">
-            <MapView className="absolute inset-0" layers={layers} pitch={0} onSelect={(l, id) => l === "centres" && setSelId(id)} fly={sel ? { lon: sel.lon, lat: sel.lat, zoom: 13.2 } : null} />
+            <MapView className="absolute inset-0" layers={layers} onSelect={(l, id) => l === "centres" && setSelId(id)} fly={sel ? { lon: sel.lon, lat: sel.lat, zoom: 13.2 } : null} />
             <AnimatePresence>
               {sel && data && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="absolute left-3 top-3 max-w-[360px] border-2 border-ink bg-card p-4 shadow-[4px_4px_0_var(--ink)]">

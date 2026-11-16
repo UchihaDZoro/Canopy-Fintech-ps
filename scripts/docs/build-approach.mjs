@@ -1,4 +1,4 @@
-// Builds docs/Canopy-Approach.pdf from the engine's real figures (docs/build/data.json)
+// Builds docs/Daycover-Approach.pdf from the engine's real figures (docs/build/data.json)
 // and screenshots of the running app (docs/build/shots). Rendered with the system Edge.
 //   node scripts/docs/build-approach.mjs
 import fs from "node:fs";
@@ -105,7 +105,7 @@ li { margin-bottom: 1mm; }
 <!-- ───────────────── COVER ───────────────── -->
 <div class="cover">
   <div class="mast"><span>Singapore–India Hackathon 2026</span><span>FinTech / InsurTech · Income Insurance</span><span>${today}</span></div>
-  <h1>Canopy — when rain shuts your stall, <em>the gauge pays.</em></h1>
+  <h1>Daycover+ — when rain shuts your stall, <em>the gauge pays.</em></h1>
   <p class="sub">Approach and design document. A parametric income cover for Singapore's hawkers, settled on official NEA and MSS readings at each stall's own gauge, back-tested on every day since 2014, with a printed receipt for every decision.</p>
   <img src="${img("01-hero.png")}"/>
 </div>
@@ -120,7 +120,7 @@ li { margin-bottom: 1mm; }
   </div>
 
   <h2 style="margin-top:7mm">1 · Executive summary</h2>
-  <p><b>Canopy</b> is income cover for hawkers and stallholders, designed to be underwritten by Income as a rider on Stallholder / SmartBiz360. When an <b>official rain gauge, heat-stress sensor or haze reading</b> near the stall crosses a printed level, it pays automatically by PayNow — no claim form, no adjuster — and sends an SMS explaining exactly why.</p>
+  <p><b>Daycover+</b> is income cover for hawkers and stallholders, designed to be underwritten by Income as a rider on Stallholder / SmartBiz360. When an <b>official rain gauge, heat-stress sensor or haze reading</b> near the stall crosses a printed level, it pays automatically by PayNow — no claim form, no adjuster — and sends an SMS explaining exactly why.</p>
   <div class="grid3">
     <div class="stat"><b>${$(T.quote.weeklyPremium, 2)}</b><span>per week at Tampines (${pct(T.quote.pctOfDailyIncome, 1)} of daily income); ${$(weeklyPortfolio, 2)} island average</span></div>
     <div class="stat"><b>${pct(d.port.totals.avgLossRatio)}</b><span>average loss ratio, ${d.port.totals.policies.toLocaleString()} policies × ${d.port.totals.centres} centres, 2014–2026 (σ ${pct(d.port.totals.sdLossRatio, 1)})</span></div>
@@ -148,7 +148,7 @@ li { margin-bottom: 1mm; }
   <p class="small">Fig. 1 — Changi (S24) days ≥ 34°C per year, 1981–2025. Darker bars: 2016 onward. Source: MSS historical daily records.</p>
   <h3>Learning from what failed</h3>
   <p>Income's brief lists parametric schemes that stalled. Each failure became a design requirement:</p>
-  <table><tr><th>Scheme and what went wrong</th><th>Canopy's answer</th></tr>
+  <table><tr><th>Scheme and what went wrong</th><th>Daycover+'s answer</th></tr>
     <tr><td>SEWA 2023 — thresholds set at record heat; paid nothing; customers lost</td><td>Levels calibrated on 2014–26 frequencies; paid in ${pct(T.stats.yearsWithPayoutPct)} of years; per-location history shown before purchase</td></tr>
     <tr><td>SEWA — payouts took 6–8 weeks</td><td>Settles on each new 5-minute reading; PayNow within minutes</td></tr>
     <tr><td>ZhongAn 2014 — single 37°C threshold ignored humidity, "gambling-like"</td><td>WBGT (humidity-aware) bands; payout sized to verified earnings and kept below modelled loss</td></tr>
@@ -177,7 +177,7 @@ li { margin-bottom: 1mm; }
   <p><b>Rules, in order:</b> (1) compare each reading with its printed levels; (2) if several perils trigger, the day pays the single highest — no stacking; (3) apply the peril cap and the overall cap of ${P.maxPayableDaysPerYear} payable days a year; (4) deduct any Prep Pay advance; (5) transfer by PayNow and send the SMS.</p>
   ${why("Per-peril caps exist because a single yearly cap let the March–May heat season use up the cover before September haze. Pooling three perils smooths the pool's year; capping each protects the stallholder's cover across seasons.")}
   <h3>3.3 Prep Pay</h3>
-  <p>At 6pm, if NEA's 24-hour forecast says "${["Fair", "Showers", "Thundery showers", "Heavy thundery showers"][P.prepPay.minSeverity].toLowerCase()}" for the stall's region (or a high ≥ ${P.prepPay.heatForecastC}°C), Canopy sends ${$(P.prepPay.advancePct * inc)} so the hawker can buy less stock. It is an <b>advance on the next payout</b> — deducted when the gauge triggers, never owed back — capped at ${P.prepPay.maxPerYear} a year. See §7.3 for why it is designed this way.</p>
+  <p>At 6pm, if NEA's 24-hour forecast says "${["Fair", "Showers", "Thundery showers", "Heavy thundery showers"][P.prepPay.minSeverity].toLowerCase()}" for the stall's region (or a high ≥ ${P.prepPay.heatForecastC}°C), Daycover+ sends ${$(P.prepPay.advancePct * inc)} so the hawker can buy less stock. It is an <b>advance on the next payout</b> — deducted when the gauge triggers, never owed back — capped at ${P.prepPay.maxPerYear} a year. See §7.3 for why it is designed this way.</p>
   <h3>3.4 Exclusions and what it does not do</h3>
   <ul><li>Pays on the official reading only — a stall can lose sales and receive nothing (stated at sale, on every receipt, and shown in the Time Machine).</li><li>Does not cover injury (WICA) or property damage (SmartBiz360) — it complements them.</li><li>7-day waiting period; 14-day free look.</li></ul>
   <h3>3.5 Who pays, and distribution</h3>
@@ -280,11 +280,11 @@ li { margin-bottom: 1mm; }
   </table>
   <p>The hold-out R² is modest because daily records lack humidity. Rather than ignore that error, each historical day is priced by the <b>probability</b> WBGT crossed the level, using the residual σ = ${d.heat.residualSigma}°C. <b>Live payouts always use observed WBGT</b>; the model only reconstructs history.</p>
   <h3>7.2 Loss model and insurable interest</h3>
-  <p>A transparent, editable revenue-drop function (rain above 12 mm/h, WBGT above 31°C, PSI above 100) sizes payouts and powers the "days you'd have lost and not been paid" disclosure. On trigger days, payout ÷ modelled loss averages <b>${T.stats.payoutToLossOnTriggerDays}</b> — below 1, so Canopy is insurance, not a bet. At Tampines it pays on ≈${T.stats.avgTriggerDays.toFixed(1)} days a year and misses ≈${T.stats.avgMissedLossDays.toFixed(1)} likely-loss days — said plainly at the point of sale.</p>
+  <p>A transparent, editable revenue-drop function (rain above 12 mm/h, WBGT above 31°C, PSI above 100) sizes payouts and powers the "days you'd have lost and not been paid" disclosure. On trigger days, payout ÷ modelled loss averages <b>${T.stats.payoutToLossOnTriggerDays}</b> — below 1, so Daycover+ is insurance, not a bet. At Tampines it pays on ≈${T.stats.avgTriggerDays.toFixed(1)} days a year and misses ≈${T.stats.avgMissedLossDays.toFixed(1)} likely-loss days — said plainly at the point of sale.</p>
   <h3>7.3 Forecast skill — why Prep Pay is an advance</h3>
   <p>Back-tested against ${T.prep.forecastDays} archived NEA evening forecasts: the region is forecast "heavy thundery showers" about <b>${T.prep.forecastAlertsPerYear} times a year</b>, but only <b>${pct(T.prep.hitRate)}</b> of those are followed by a trigger at a given gauge (half of all payouts were forewarned). Paid as a gift, advances would almost double the premium. Designed as an advance on the next payout, capped at ${P.prepPay.maxPerYear} a year, the back-tested net cost is <b>${$(T.prep.netCostPerYear)}</b> — the stallholder still gets cash the evening before.</p>
   <h3>7.4 Basis risk, measured</h3>
-  <p>Storms are local. When the second-nearest gauge reaches level 1, the nearest one does too only <b>${pct(T.stats.gaugeAgreement)}</b> of the time at Tampines. Canopy reports this per location instead of hiding it, and settles on the gauge closest to the stall (median distance 1–2 km).</p>
+  <p>Storms are local. When the second-nearest gauge reaches level 1, the nearest one does too only <b>${pct(T.stats.gaugeAgreement)}</b> of the time at Tampines. Daycover+ reports this per location instead of hiding it, and settles on the gauge closest to the stall (median distance 1–2 km).</p>
 </section>
 
 <!-- ───────────────── 8 EXPERIENCE ───────────────── -->
@@ -327,8 +327,8 @@ li { margin-bottom: 1mm; }
 <section>
   <div class="kicker"><span class="plate">#10</span>Compliance</div>
   <h2>10 · Compliance with the brief</h2>
-  <table><tr><th>Constraint</th><th>How Canopy meets it</th></tr>
-    <tr><td>Offered by a licensed insurer (MAS)</td><td>Designed as an Income rider on Stallholder / SmartBiz360; Canopy is the product and engine, not an insurer</td></tr>
+  <table><tr><th>Constraint</th><th>How Daycover+ meets it</th></tr>
+    <tr><td>Offered by a licensed insurer (MAS)</td><td>Designed as an Income rider on Stallholder / SmartBiz360; Daycover+ is the product and engine, not an insurer</td></tr>
     <tr><td>Insurable interest</td><td>Licensed stallholders only; payout sized to verified earnings and kept below modelled loss</td></tr>
     <tr><td>Say plainly when it doesn't pay</td><td>One sentence at sale; per-stall history incl. unpaid bad days; NOT PAID receipts with the reading</td></tr>
     <tr><td>Back-test the trigger</td><td>2014–2026 gauges, PSI, WBGT; forecasts since 2018; results per stall, per area and portfolio</td></tr>
@@ -360,7 +360,7 @@ li { margin-bottom: 1mm; }
   <h2 style="margin-top:8mm">12 · Pilot plan and roadmap</h2>
   <table><tr><th>Phase</th><th>Scope</th><th>Measures of success</th></tr>
     <tr><td>Pilot (6 months)</td><td>3 hawker centres with different risk (e.g. Tampines, Jurong West, Tiong Bahru); 300 stallholders via NTUC</td><td>Take-up ≥ 30%; teach-back pass rate; payout within 5 min of trigger; complaint rate; basis-risk feedback</td></tr>
-    <tr><td>Canopy Plus</td><td>Opt-in dual trigger: weather level <i>and</i> a dip in the stall's own SGQR takings (with consent)</td><td>Lower premium; lower basis risk; consent rate</td></tr>
+    <tr><td>Daycover+ Max</td><td>Opt-in dual trigger: weather level <i>and</i> a dip in the stall's own SGQR takings (with consent)</td><td>Lower premium; lower basis risk; consent rate</td></tr>
     <tr><td>Outdoor &amp; platform workers</td><td>Same engine with trading-window and income parameters; distribution via NTUC NDCA / NPHVA</td><td>Payouts aligned with MOM heat-stress rest periods</td></tr>
     <tr><td>Risk reduction</td><td>Prep Pay advice, cooling partner discounts, flood-barrier rewards</td><td>Reduced modelled loss on trigger days</td></tr>
   </table>
@@ -381,7 +381,7 @@ npm run pipeline            # rebuild the data (resumable)
 npm run build &amp;&amp; npm start  # http://localhost:3000
 # .env.local (optional): FAST2SMS_API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM, DATA_GOV_SG_API_KEY</div>
   ${fig("03-journey.png", 11, "The life of one payout: storm → gauge → engine → PayNow → SMS.")}
-  <p class="small">Figures in this document were produced by the running engine on ${today} from public NEA / MSS / URA data. Canopy is a hackathon prototype designed to be underwritten by Income Insurance Limited; figures are back-tests, not offers of insurance.</p>
+  <p class="small">Figures in this document were produced by the running engine on ${today} from public NEA / MSS / URA data. Daycover+ is a hackathon prototype designed to be underwritten by Income Insurance Limited; figures are back-tests, not offers of insurance.</p>
 </section>
 </body></html>`;
 
@@ -390,13 +390,13 @@ const browser = await chromium.launch({ executablePath: "C:/Program Files (x86)/
 const page = await browser.newPage();
 await page.setContent(html, { waitUntil: "networkidle", timeout: 120000 });
 await page.evaluate(() => document.fonts.ready);
-const out = path.join(ROOT, "docs", "Canopy-Approach.pdf");
+const out = path.join(ROOT, "docs", "Daycover-Approach.pdf");
 await page.pdf({
   path: out,
   format: "A4",
   printBackground: true,
   displayHeaderFooter: true,
-  headerTemplate: `<div style="font-family:monospace;font-size:7px;color:#868170;width:100%;padding:0 15mm;display:flex;justify-content:space-between"><span>CANOPY · APPROACH &amp; DESIGN</span><span>Singapore–India Hackathon 2026 · Income Insurance</span></div>`,
+  headerTemplate: `<div style="font-family:monospace;font-size:7px;color:#868170;width:100%;padding:0 15mm;display:flex;justify-content:space-between"><span>DAYCOVER+ · APPROACH &amp; DESIGN</span><span>Singapore–India Hackathon 2026 · Income Insurance</span></div>`,
   footerTemplate: `<div style="font-family:monospace;font-size:7px;color:#868170;width:100%;padding:0 15mm;display:flex;justify-content:space-between"><span>Settled on public NEA / MSS data</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`,
   margin: { top: "17mm", bottom: "18mm", left: "15mm", right: "15mm" },
 });
